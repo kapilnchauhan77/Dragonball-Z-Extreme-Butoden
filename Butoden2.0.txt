@@ -1,0 +1,863 @@
+import simplegui
+x=28
+y=153
+x1=51
+y1=83
+a=0
+b=-1
+xwidth=200
+xpos=248
+ypos=503
+width=200
+intro=True
+crouch=False
+stand=True
+forward=False
+backward=False
+jump=False
+defence=False
+punch=False
+kick=False
+shoot=False
+kiblast=False
+kamehamehas=False
+kamehameha=False
+image=False
+imageflip=False
+xf=760
+yf=161
+x1f=49+2
+y1f=69+2
+af=0
+bf=-1
+xposf=1000
+yposf=503
+widthf=200
+heightf=300
+introf=True
+crouchf=False
+standf=True
+forwardf=False
+backwardf=False
+slicerf=False
+jumpf=False
+defencef=False
+punchf=False
+kickf=False
+shootf=False
+kiblastf=False
+kamehamehasf=False
+kamehamehaf=False
+def ku(k):
+    global crouchf,standf,forwardf,backwardf,jumpf,defencef,heightf,widthf
+    global crouch,stand,forward,backward,jump,defence
+    if not kamehamehasf:
+        if simplegui.KEY_MAP['g']==k:
+            crouchf=False
+            standf=True
+            heightf=300
+        if simplegui.KEY_MAP['h']==k:
+            standf=True
+            forwardf=False                
+        if simplegui.KEY_MAP['f']==k:        
+            standf=True
+            backwardf=False
+            widthf=200
+        if simplegui.KEY_MAP['t']==k:
+            jumpf=False
+            standf=True
+            heightf=300
+        if simplegui.KEY_MAP['4']==k:
+            standf=True       
+            defencef=False   
+    if not kamehamehas:
+        if simplegui.KEY_MAP['down']==k:
+            crouch=False
+            stand=True              
+        if simplegui.KEY_MAP['right']==k:
+            stand=True
+            forward=False                
+        if simplegui.KEY_MAP['left']==k:        
+            stand=True
+            backward=False                
+        if simplegui.KEY_MAP['up']==k:
+            jump=False
+            stand=True
+        if simplegui.KEY_MAP['d']==k:
+            stand=True       
+            defence=False   
+def kd(k):
+    global crouch,stand,forward,backward,shoot,kick,jump,defence,punch,kamehamehas
+    global crouchf,standf,forwardf,backwardf,shootf,kickf,jumpf,defencef,punchf,kamehamehasf,heightf,widthf
+    if not kamehamehas:
+        if simplegui.KEY_MAP['down']==k:
+            crouch=True
+            kick=False
+            stand=False
+            forward=False
+            backward=False
+            jump=False
+            punch=False
+            shoot=False            
+
+        if simplegui.KEY_MAP['right']==k:
+            if not xpos>=1200:
+                crouch=False
+                kick=False
+                stand=False
+                forward=True
+                backward=False
+                jump=False
+                defence=False
+                punch=False
+                shoot=False
+
+        if simplegui.KEY_MAP['left']==k:
+            if not xpos<=100:
+                crouch=False
+                kick=False
+                stand=False
+                forward=False
+                backward=True
+                jump=False
+                defence=False
+                punch=False
+                shoot=False
+
+        if simplegui.KEY_MAP['up']==k:
+            if not ypos<=146:
+                crouch=False
+                kick=False
+                stand=False
+                forward=False
+                backward=False
+                jump=True
+                defence=False
+                punch=False
+                shoot=False
+
+        if simplegui.KEY_MAP['d']==k:        
+            stand=False
+            kick=False
+            forward=False
+            backward=False
+            jump=False
+            defence=True 
+            punch=False
+            shoot=False
+
+        if simplegui.KEY_MAP['a']==k:
+            crouch=False
+            stand=False
+            kick=False
+            forward=False
+            backward=False
+            jump=False
+            defence=False
+            punch=True
+            shoot=False
+
+        if simplegui.KEY_MAP['s']==k:
+            crouch=False
+            stand=False
+            forward=False
+            backward=False
+            jump=False
+            defence=False
+            punch=False
+            kick=True
+            shoot=False
+
+        if simplegui.KEY_MAP['space']==k:
+            if not kiblast:
+                crouch=False
+                stand=False
+                forward=False
+                backward=False
+                jump=False
+                defence=False
+                punch=False
+                kick=False
+                shoot=True
+            
+    if simplegui.KEY_MAP['w']==k:
+        if not kamehameha:
+            crouch=False
+            stand=False
+            forward=False
+            backward=False
+            jump=False
+            defence=False
+            punch=False
+            kick=False
+            shoot=False
+            kamehamehas=True
+    if not kamehamehasf:
+        if simplegui.KEY_MAP['g']==k:
+            crouchf=True
+            kickf=False
+            standf=False
+            forwardf=False
+            backwardf=False
+            jumpf=False
+            punchf=False
+            shootf=False 
+            heightf=300
+            widthf=200
+
+        if simplegui.KEY_MAP['h']==k:
+            if not xposf>=1200:
+                crouchf=False
+                kickf=False
+                standf=False
+                forwardf=True
+                backwardf=False
+                jumpf=False
+                defencef=False
+                punchf=False
+                shootf=False
+                heightf=300
+                widthf=200
+
+        if simplegui.KEY_MAP['f']==k:
+            if not xposf<=100:
+                crouchf=False
+                kickf=False
+                standf=False
+                forwardf=False
+                backwardf=True
+                jumpf=False
+                defencef=False
+                punchf=False
+                shootf=False
+                heightf=300
+                widthf=200
+
+        if simplegui.KEY_MAP['t']==k:
+            if not yposf<=146:
+                crouchf=False
+                kickf=False
+                standf=False
+                forwardf=False
+                backwardf=False
+                jumpf=True
+                defencef=False
+                punchf=False
+                shootf=False
+                heightf=300
+                widthf=200
+
+        if simplegui.KEY_MAP['4']==k:        
+            standf=False
+            kickf=False
+            forwardf=False
+            backwardf=False
+            jumpf=False
+            defencef=True 
+            punchf=False
+            shootf=False
+            heightf=300
+            widthf=200
+
+        if simplegui.KEY_MAP['2']==k:
+            crouchf=False
+            standf=False
+            kickf=False
+            forwardf=False
+            backwardf=False
+            jumpf=False
+            defencef=False
+            punchf=True
+            shootf=False
+            heightf=300
+            widthf=200
+
+        if simplegui.KEY_MAP['3']==k:
+            crouchf=False
+            standf=False
+            forwardf=False
+            backwardf=False
+            jumpf=False
+            defencef=False
+            punchf=False
+            kickf=True
+            shootf=False
+            heightf=300
+            widthf=200
+
+        if simplegui.KEY_MAP['5']==k:
+            if not kiblastf:
+                crouchf=False
+                standf=False
+                forwardf=False
+                backwardf=False
+                jumpf=False
+                defencef=False
+                punchf=False
+                kickf=False
+                shootf=True
+                heightf=300
+                widthf=200
+            
+    if simplegui.KEY_MAP['1']==k:
+        if not kamehamehaf:
+            crouchf=False
+            standf=False
+            forwardf=False
+            backwardf=False
+            jumpf=False
+            defencef=False
+            punchf=False
+            kickf=False
+            shootf=False
+            kamehamehasf=True
+            heightf=300
+            widthf=200
+            standf=True
+    
+def tick():
+    global x,y,x1,y1,a,intro,b,stand,kamehamehas,width,xpos,kamehameha,xkamehameha,ykamehameha,xbar
+    if intro:
+        xl=[85,159,233,305,375,454,529,38]
+        yl=[162,165,165,162,166,167,162,265]
+        x1l=[65,66,66,66,66,66,65,65]
+        y1l=[67,60,60,67,58,57,67,68]
+        x=xl[a]
+        y=yl[a]
+        x1=x1l[a]
+        y1=y1l[a]
+        a+=1
+        if a==8:
+            intro=False
+    if not intro:
+        if xpos<xposf:
+            if kamehamehas:
+                if b!=7:
+                    b+=1            
+                xl=[37,98,160,222,289,384,494,603]
+                yl=[2012,2010,2010,2010,2010,2004,2004,2004]
+                x1l=[51,51,51,51,63,107,102,102]
+                y1l=[66,71,71,71,71,82,82,82]
+                x=xl[b]
+                y=yl[b]
+                x1=x1l[b]
+                y1=y1l[b]
+                if b==5:
+                    width=400
+                    xpos+=100
+                if b==6:
+                    kamehameha=True
+                    xkamehameha=xpos+500
+                    ykamehameha=ypos-14
+                    xbar=xpos+300
+        if xpos>=xposf:
+            if kamehamehas:
+                if b!=7:
+                    b+=1            
+                xl=[37,98,160,222,289,384,494,603]
+                yl=[2012,2010,2010,2010,2010,2004,2004,2004]
+                x1l=[51,51,51,51,63,107,102,102]
+                y1l=[66,71,71,71,71,82,82,82]
+                x=xl[b]
+                y=yl[b]
+                x1=x1l[b]
+                y1=y1l[b]
+                if b==5:
+                    width=400
+                    xpos+=100
+                if b==6:
+                    kamehameha=True
+                    xkamehameha=xpos-500
+                    ykamehameha=ypos-14
+                    xbar=xpos-300           
+def tickf():
+    global xf,yf,x1f,y1f,af,introf,bf,standf,kamehamehasf,widthf,xposf,heightf,kamehamehaf,xkamehamehaf,ykamehamehaf,slicerf
+    if introf:
+        xf=703
+        yf=161
+        x1f=55
+        y1f=69
+        af+=1
+        if af==2:
+            introf=False
+    if not introf:
+        if xpos<xposf:
+            if kamehamehasf:
+                standf=False
+                if bf!=2:
+                    bf+=1            
+                xl=[758,685,685]
+                yl=[2009,2011,2011]
+                x1l=[53,82,82]
+                y1l=[71,64,64]
+                xf=xl[bf]
+                yf=yl[bf]
+                x1f=x1l[bf]
+                y1f=y1l[bf]
+                if bf==1:
+                    kamehamehaf=True
+                    xkamehamehaf=xposf-200
+                    ykamehamehaf=yposf-40
+                if bf==0:
+                    slicerf=True
+                else:
+                    slicerf=False
+        if xpos>xposf:
+            if kamehamehasf:
+                standf=False
+                if bf!=2:
+                    bf+=1            
+                xl=[40,112,112]
+                yl=[2009,2011,2011]
+                x1l=[53,82,82]
+                y1l=[71,64,64]
+                xf=xl[bf]
+                yf=yl[bf]
+                x1f=x1l[bf]
+                y1f=y1l[bf]
+                if bf==1:
+                    kamehamehaf=True
+                    xkamehamehaf=xposf+200
+                    ykamehamehaf=yposf-40
+                if bf==0:
+                    slicerf=True
+                else:
+                    slicerf=False
+def tick2():
+    global punch,stand,kick,shoot
+    if punch:
+        punch=False
+        stand=True
+    if kick:
+        kick=False
+        stand=True
+    if shoot:
+        shoot=False
+        stand=True
+def tick2f():
+    global punchf,standf,kickf,shootf,heightf
+    if punchf:
+        punchf=False
+        standf=True
+    if kickf:
+        kickf=False
+        standf=True
+    if shootf:
+        shootf=False
+        standf=True
+def draw(canvas):
+    global xf,yf,x1f,y1f,jumpf,xposf,yposf,kiblastf,xblastf,yblastf,shootf,heightf,kamehamehaf,xkamehamehaf,ykamehamehaf,widthf,standf,bf,kamehamehasf    
+    global x,y,x1,y1,jump,xpos,ypos,kiblast,xblast,yblast,shoot,kamehameha,image,imageflip,xkamehameha,ykamehameha,xwidth,xbar,width,stand,b,kamehamehas
+	canvas.draw_po
+    canvas.draw_image(simplegui.load_image("D:/Document/Bg.png"),[650,566],[1300,1132],[650,325],[1300,650])
+    canvas.draw_image(simplegui.load_image("D:/Document/Gokuflip.png"),[56,78],[100,121],[90,153],[200,300])
+    canvas.draw_image(simplegui.load_image("D:/Document/Frieza.png"),[727,78],[100,121],[1190,153],[200,300])    
+    if xpos<xposf:
+        image=True
+        imageflip=False
+        if image:
+            canvas.draw_image(simplegui.load_image("D:/Document/Goku.png"), [x,y],[x1,y1],[xpos,ypos],[width,300])      
+        if not intro:        
+            if crouch:
+                if not ypos>=502:
+                    x=96
+                    y=376
+                    x1=62
+                    y1=79            
+                    ypos+=4
+                else:
+                    x=121
+                    y=265
+                    x1=51
+                    y1=68
+            if stand:
+                x=38
+                y=265
+                x1=51
+                y1=68
+            if forward:
+                x=98
+                y=607
+                x1=63
+                y1=73
+                if not xpos>=1200:
+                    xpos+=4
+            if backward:
+                x=352
+                y=606
+                x1=48
+                y1=74
+                if not xpos<=100:
+                    xpos-=4
+            if jump:
+                x=96
+                y=376
+                x1=62
+                y1=79
+                if not ypos<=146:
+                    ypos-=4
+            if defence:
+                x=201
+                y=953
+                x1=50
+                y1=71        
+            if punch:
+                x=102
+                y=1068
+                x1=70
+                y1=64
+            if kick:
+                x=107
+                y=1284
+                x1=68
+                y1=77
+            if crouch and defence:
+                if ypos>=502:
+                    x=260
+                    y=953
+                    x1=51
+                    y1=68
+            if shoot:
+                x=417
+                y=956
+                x1=62
+                y1=64
+                kiblast=True
+                xblast=xpos+200
+                yblast=ypos-90
+            if kiblast:            
+                canvas.draw_image(simplegui.load_image("D:/Document/Goku.png"),[496,956],[61,82],[xblast,yblast],[200,300])
+                xblast+=8
+                if xblast>=1315:
+                    kiblast=False
+            if kamehameha:
+                canvas.draw_image(simplegui.load_image("D:/Document/Goku.png"),[707,2001],[55,124],[xkamehameha,ykamehameha],[200,300])
+                canvas.draw_image(simplegui.load_image("D:/Document/Goku.png"),[666,2001],[10,122],[xbar,ypos-14],[xwidth,300])
+                xkamehameha+=8
+                xwidth+=8
+                xbar+=4
+                if xkamehameha>=1280:
+                    kamehameha=False
+                    xwidth=200
+                    width=200
+                    xbar=xpos+300
+                    kamehamehas=False
+                    stand=True               
+                    xpos-=100
+                    b=-1
+        if image:            
+            canvas.draw_image(simplegui.load_image("D:/Document/Friezaflip.png"), [xf,yf],[x1f,y1f],[xposf,yposf],[widthf,heightf])      
+        if not introf:        
+            if crouchf:
+                if not yposf>=502:
+                    xf=697
+                    yf=395
+                    x1f=60
+                    y1f=128           
+                    yposf+=4
+                    heightf=600                
+                else:
+                    xf=672
+                    yf=268
+                    x1f=57
+                    y1f=62
+                    heightf=300
+            if standf:
+                xf=756
+                yf=268
+                x1f=58
+                y1f=62
+                heightf=300
+                widthf=200
+            if forwardf:
+                xf=269
+                yf=618
+                x1f=61
+                y1f=69
+                
+                if not xposf>=1121:
+                    xposf+=4 
+                    heightf=300
+                    widthf=200
+            if backwardf:
+                xf=679
+                yf=621
+                x1f=92
+                y1f=63
+                widthf=400
+                if not xposf<=100:
+                    xposf-=4
+                    
+            if jumpf:
+                xf=697
+                yf=395
+                x1f=60
+                y1f=128  
+                heightf=600
+                if not yposf<=277:
+                    yposf-=4
+
+            if defencef:
+                xf=589
+                yf=957
+                x1f=64
+                y1f=63 
+                heightf=300
+                widthf=200
+            if punchf:
+                xf=661
+                yf=1066
+                x1f=84
+                y1f=61
+                heightf=300
+                widthf=200
+            if kickf:
+                xf=677
+                yf=1411
+                x1f=69
+                y1f=56
+                heightf=300
+                widthf=200
+            if crouchf and defencef:
+                if yposf>=502:
+                    xf=524
+                    yf=957
+                    x1f=64
+                    y1f=63
+                    heightf=300
+                    widthf=200
+            if shootf:
+                xf=353
+                yf=953
+                x1f=85
+                y1f=62
+                kiblastf=True
+                xblastf=xposf-200
+                yblastf=yposf-70
+                heightf=300
+                widthf=200
+            if kiblastf:            
+                canvas.draw_image(simplegui.load_image("D:/Document/Friezaflip.png"),[254,956],[79,82],[xblastf,yblastf],[200,300])
+                xblastf-=8
+                if xblastf<=-35:
+                    kiblastf=False
+            if kamehamehaf:
+                canvas.draw_image(simplegui.load_image("D:/Document/Friezaflip.png"),[594,2004],[52,82],[xkamehamehaf,ykamehamehaf],[200,300])
+                xkamehamehaf-=8
+                if xkamehamehaf<=20:
+                    kamehamehaf=False
+                    kamehamehasf=False
+                    standf=True               
+                    bf=-1
+            if slicerf:
+                canvas.draw_image(simplegui.load_image("D:/Document/Friezaflip.png"),[594,1971],[59,82],[xposf+50,yposf-270],[200,300])
+    elif xpos>=xposf:
+        image=False
+        imageflip=True
+        if imageflip:
+            canvas.draw_image(simplegui.load_image("D:/Document/Gokuflip.png"), [735-x,y],[x1,y1],[xpos,ypos],[width,300])      
+        if not intro:        
+            if crouch:
+                if not ypos>=502:
+                    x=96
+                    y=376
+                    x1=62
+                    y1=79            
+                    ypos+=4
+                else:
+                    x=121
+                    y=265
+                    x1=51
+                    y1=68
+            if stand:
+                x=38
+                y=265
+                x1=51
+                y1=68
+            if forward:
+                x=352
+                y=606
+                x1=48
+                y1=74
+                if not xpos>=1200:
+                    xpos+=4
+            if backward:
+                x=98
+                y=607
+                x1=63
+                y1=73            
+                if not xpos<=100:
+                    xpos-=4
+            if jump:
+                x=96
+                y=376
+                x1=62
+                y1=79
+                if not ypos<=146:
+                    ypos-=4
+            if defence:
+                x=201
+                y=953
+                x1=50
+                y1=71        
+            if punch:
+                x=102
+                y=1068
+                x1=70
+                y1=64
+            if kick:
+                x=107
+                y=1284
+                x1=68
+                y1=77
+            if crouch and defence:
+                if ypos>=502:
+                    x=260
+                    y=953
+                    x1=51
+                    y1=68
+            if shoot:
+                x=417
+                y=956
+                x1=62
+                y1=64
+                kiblast=True
+                xblast=xpos-200
+                yblast=ypos-90
+            if kiblast:            
+                canvas.draw_image(simplegui.load_image("D:/Document/Gokuflip.png"),[735-496,956],[61,82],[xblast,yblast],[200,300])
+                xblast-=8
+                if xblast<=-15:
+                    kiblast=False
+            if kamehameha:
+                canvas.draw_image(simplegui.load_image("D:/Document/Gokuflip.png"),[735-707,2001],[55,124],[xkamehameha,ykamehameha],[200,300])
+                canvas.draw_image(simplegui.load_image("D:/Document/Gokuflip.png"),[735-666,2001],[10,122],[xbar,ypos-14],[xwidth,300])
+                xkamehameha-=8
+                xwidth+=8
+                xbar-=4
+                if xkamehameha<=20:
+                    kamehameha=False
+                    xwidth=200
+                    width=200
+                    xbar=xpos+300
+                    kamehamehas=False
+                    stand=True               
+                    xpos-=100
+                    b=-1
+        if imageflip:            
+            canvas.draw_image(simplegui.load_image("D:/Document/Frieza.png"), [xf,yf],[x1f,y1f],[xposf,yposf],[widthf,heightf])      
+        if not introf:        
+            if crouchf:
+                if not yposf>=502:
+                    xf=98
+                    yf=395
+                    x1f=60
+                    y1f=128           
+                    yposf+=4
+                    heightf=600                
+                else:
+                    xf=127
+                    yf=268
+                    x1f=57
+                    y1f=62
+                    heightf=300
+            if standf:
+                xf=41
+                yf=268
+                x1f=58
+                y1f=62+2
+                heightf=300
+                widthf=200
+            if forwardf:
+                xf=119
+                yf=621
+                x1f=92-3
+                y1f=63
+                widthf=400
+                if not xposf>=1121:
+                    xposf+=4                
+            if backwardf:
+                xf=529
+                yf=618
+                x1f=61-3
+                y1f=69+2
+                if not xposf<=100:
+                    xposf-=4
+                    heightf=300
+                    widthf=200
+            if jumpf:
+                xf=98
+                yf=395
+                x1f=60
+                y1f=128  
+                heightf=600
+                if not yposf<=277:
+                    yposf-=4
+
+            if defencef:
+                xf=209
+                yf=957
+                x1f=64+2
+                y1f=63+2
+                heightf=300
+                widthf=200
+            if punchf:
+                xf=136
+                yf=1066
+                x1f=84+2
+                y1f=61
+                heightf=300
+                widthf=200
+            if kickf:
+                xf=121
+                yf=1411
+                x1f=69+1
+                y1f=56+2
+                heightf=300
+                widthf=200
+            if crouchf and defencef:
+                if yposf>=502:
+                    xf=123
+                    yf=1169
+                    x1f=57
+                    y1f=62
+                    heightf=300
+                    widthf=200
+            if shootf:
+                xf=445
+                yf=953
+                x1f=85
+                y1f=62
+                kiblastf=True
+                xblastf=xposf+200
+                yblastf=yposf-70
+                heightf=300
+                widthf=200
+            if kiblastf:            
+                canvas.draw_image(simplegui.load_image("D:/Document/Frieza.png"),[544,956],[79,82],[xblastf,yblastf],[200,300])
+                xblastf+=8
+                if xblastf>=1315:
+                    kiblastf=False
+            if kamehamehaf:
+                canvas.draw_image(simplegui.load_image("D:/Document/Frieza.png"),[202,2004],[52,82],[xkamehamehaf,ykamehamehaf],[200,300])
+                xkamehamehaf+=8
+                if xkamehamehaf>=1280:
+                    kamehamehaf=False
+                    kamehamehasf=False
+                    standf=True               
+                    bf=-1
+            if slicerf:
+                canvas.draw_image(simplegui.load_image("D:/Document/Frieza.png"),[204,1971],[59,82],[xposf-50,yposf-270],[200,300])
+frame = simplegui.create_frame("Butoden", 1300, 650,0)
+timerf = simplegui.create_timer(500,tickf)
+timer = simplegui.create_timer(250,tick)
+timer2f = simplegui.create_timer(700,tick2f)
+timer2 = simplegui.create_timer(500,tick2)
+frame.set_draw_handler(draw)
+frame.set_keydown_handler(kd)
+frame.set_keyup_handler(ku)
+frame.start()
+timerf.start()
+timer.start()
+timer2f.start()
+timer2.start()
